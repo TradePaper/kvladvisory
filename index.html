@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="David T. Kuhn — Senior operator and strategic counsel with 15 years across BigLaw, high-growth technology companies, and founder-led businesses. Legal, strategy, finance, and execution.">
+  <title>David T. Kuhn | KVL Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* === ROOT === */
+    body {
+      font-family: 'Spectral', Georgia, serif;
+      background: #0d0f0e;
+      color: #e8e2d5;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* === GRAIN OVERLAY === */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* === LAYOUT === */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.15s; }
+    .d3 { animation-delay: 0.28s; }
+    .d4 { animation-delay: 0.38s; }
+    .d5 { animation-delay: 0.48s; }
+    .d6 { animation-delay: 0.55s; }
+    .d7 { animation-delay: 0.62s; }
+    .d8 { animation-delay: 0.68s; }
+
+    /* === NAV === */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 0.5px solid rgba(232,226,213,0.12);
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6b6459;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6b6459;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #e8e2d5; }
+
+    /* === HERO === */
+    header {
+      padding: 4.5rem 0 4rem;
+      border-bottom: 0.5px solid rgba(232,226,213,0.12);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .hero-left { }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #534e47;
+      margin-bottom: 1.4rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: #f0ece3;
+    }
+    h1 em {
+      font-style: italic;
+      color: #b5a98a;
+    }
+    .title-rule {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #6b6459;
+      margin: 1.6rem 0 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .title-rule::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(232,226,213,0.12);
+    }
+    .tagline {
+      font-size: 1.08rem;
+      font-weight: 300;
+      line-height: 1.72;
+      color: #a8a195;
+      max-width: 500px;
+    }
+    .tagline strong {
+      font-weight: 400;
+      color: #cdc7bb;
+    }
+
+    /* === HEADSHOT === */
+    .hero-photo-wrap {
+      position: relative;
+      padding-top: 0.5rem;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #171a18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* vignette — simulates natural studio light falloff */
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, transparent 42%, rgba(10,12,11,0.42) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* grain — breaks up AI over-smoothness */
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      opacity: 0.09;
+      mix-blend-mode: overlay;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      display: block;
+      filter: contrast(1.04) saturate(0.90) brightness(1.01);
+    }
+    .photo-placeholder {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #3a3830;
+    }
+
+    /* === SOCIAL ROW === */
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-top: 2.2rem;
+    }
+    .social a {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5a5449;
+      text-decoration: none;
+      border-bottom: 0.5px solid #2e2c28;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .social a:hover { color: #e8e2d5; border-color: #e8e2d5; }
+
+    /* === LOGO BAND === */
+    .logo-band {
+      padding: 2.8rem 0;
+      border-bottom: 0.5px solid rgba(232,226,213,0.1);
+    }
+    .logo-band-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #3a3830;
+      margin-bottom: 1.6rem;
+    }
+    .logo-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.3rem 0;
+    }
+    .logo-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #2e2c28;
+      min-width: 80px;
+      padding-right: 1rem;
+      flex-shrink: 0;
+    }
+    .logo-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.8rem;
+    }
+    .logo-item {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+    }
+    .logo-item img {
+      display: block;
+      height: 100%;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.28;
+      transition: opacity 0.3s ease;
+    }
+    .logo-item img:hover {
+      opacity: 0.48;
+    }
+    .logo-item .logo-fallback {
+      display: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a4640;
+    }
+    .logo-item img.logo-hidden {
+      display: none;
+    }
+    .logo-item img.logo-hidden + .logo-fallback {
+      display: inline;
+    }
+
+    /* === SECTIONS === */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 0.5px solid rgba(232,226,213,0.1);
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #6b6459;
+      margin-bottom: 2rem;
+    }
+
+    /* === WHAT I DO TILES === */
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(232,226,213,0.08);
+      border: 1px solid rgba(232,226,213,0.08);
+    }
+    .tile {
+      background: #0d0f0e;
+      padding: 1.3rem 1.4rem;
+    }
+    .tile-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a8275;
+      line-height: 1.5;
+    }
+
+    /* === CREDENTIALS === */
+    .creds {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 2.5rem;
+      gap: 0;
+    }
+    .cred-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: #d4cfc5;
+      line-height: 1;
+      margin-bottom: 0.45rem;
+    }
+    .cred-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5a5449;
+      line-height: 1.5;
+    }
+
+    /* === ABOUT TEXT === */
+    .rule {
+      width: 2.5rem;
+      height: 0.5px;
+      background: #2e2c28;
+      margin-bottom: 2rem;
+    }
+    .about p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.82;
+      color: #9a9288;
+      margin-bottom: 1.1rem;
+    }
+    .about p:last-child { margin-bottom: 0; }
+    .about strong { font-weight: 400; color: #c4beb1; }
+    .about em { color: #8a8275; }
+
+    /* === PUB GROUP LABELS === */
+    .writing-intro {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #6b6459;
+      font-style: italic;
+      margin-bottom: 2.2rem;
+      max-width: 480px;
+    }
+    .pub-group {
+      margin-bottom: 0.5rem;
+    }
+    .pub-group-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #4a4640;
+      padding: 1.8rem 0 0.8rem;
+      border-top: 0.5px solid rgba(232,226,213,0.08);
+    }
+    .pub-group:first-child .pub-group-label {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    /* === PUBLICATIONS === */
+    .pub {
+      display: block;
+      padding: 1.4rem 0;
+      border-top: 0.5px solid rgba(232,226,213,0.08);
+      text-decoration: none;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .pub:hover .pub-title { color: #f0ece3; }
+    .pub:hover .pub-arrow { transform: translate(4px, -4px); opacity: 1; }
+    .pub-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a4640;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .pub-series { color: #6b6050; }
+    .pub-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #b8b1a2;
+      line-height: 1.4;
+      transition: color 0.2s;
+      padding-right: 2rem;
+    }
+    .pub-blurb {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #5a5449;
+      margin-top: 0.4rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .pub-arrow {
+      position: absolute;
+      top: 1.4rem;
+      right: 0;
+      font-size: 0.85rem;
+      color: #6b6459;
+      opacity: 0;
+      transition: all 0.2s;
+    }
+
+    /* === CONTACT === */
+    .contact-note {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #7a7369;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.8rem;
+      max-width: 520px;
+    }
+    .contact-email {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #9a8a6a;
+      text-decoration: none;
+      border-bottom: 0.5px solid #2e2c28;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-email:hover { color: #e8e2d5; border-color: #e8e2d5; }
+    .contact-location {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3a3830;
+      margin-top: 1.2rem;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy, .footer-entity {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2e2c28;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 680px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-photo-wrap {
+        order: -1;
+        padding-top: 0;
+      }
+      .hero-photo {
+        aspect-ratio: 4 / 3;
+        max-height: 320px;
+      }
+      .hero-photo img {
+        object-position: center 15%;
+      }
+      .tiles { grid-template-columns: 1fr; }
+      .creds { grid-template-columns: repeat(3, 1fr); }
+      nav ul { gap: 1.2rem; }
+      .social { gap: 1rem; }
+      .logo-cat { min-width: 60px; font-size: 7.5px; }
+      .logo-item { height: 18px; }
+      .logo-item img { max-width: 100px; }
+      .logo-items { gap: 0.4rem 1.2rem; }
+    }
+    @media (max-width: 420px) {
+      nav ul { gap: 0.9rem; }
+      nav a { font-size: 10px; }
+      .creds { grid-template-columns: repeat(3, 1fr); gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav class="anim d1">
+    <span class="nav-logo">KVL Advisory</span>
+    <ul>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#what-i-do">What I Do</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="anim d2">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow">kvladvisory.com &nbsp;·&nbsp; Palm Beach Gardens, FL</p>
+        <h1>David T.<br><em>Kuhn</em></h1>
+        <p class="title-rule">Operator &nbsp;·&nbsp; Strategic Counsel &nbsp;·&nbsp; Builder</p>
+        <p class="tagline">
+          Senior operator with experience as a two-time General Counsel and <strong>15 years across BigLaw, high-growth tech, and founder-led businesses.</strong> I operate at the intersection of legal, strategic finance, operations, and execution — helping companies structure, launch, negotiate, and scale in complex markets.
+        </p>
+        <div class="social anim d3">
+          <a href="https://x.com/gr8day4this" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.linkedin.com/in/david-t-kuhn/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:david@kuhnventurelaw.com">Email</a>
+          <a href="https://www.tcframework.com" target="_blank" rel="noopener">TCF Framework</a>
+          <a href="https://eventrisk.ai" target="_blank" rel="noopener">EventRisk.ai</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap anim d3">
+        <div class="hero-photo">
+          <img src="headshot.jpg" alt="David T. Kuhn" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="photo-placeholder" style="display:none;">headshot.jpg</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LOGO / CREDENTIAL BAND -->
+  <div class="logo-band anim d4">
+    <p class="logo-band-label">Experience &amp; Education</p>
+    <div class="logo-rows">
+      <div class="logo-row">
+        <span class="logo-cat">Firms</span>
+        <div class="logo-items">
+          <span class="logo-item"><img src="logos/fried-frank.png" alt="Fried Frank" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Fried Frank</span></span>
+          <span class="logo-item"><img src="logos/alston-bird.png" alt="Alston &amp; Bird" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Alston &amp; Bird</span></span>
+        </div>
+      </div>
+      <div class="logo-row">
+        <span class="logo-cat">Companies</span>
+        <div class="logo-items">
+          <span class="logo-item"><img src="logos/karate-combat.png" alt="Karate Combat" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Karate Combat</span></span>
+          <span class="logo-item"><img src="logos/ankr.png" alt="Ankr Network" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Ankr Network</span></span>
+        </div>
+      </div>
+      <div class="logo-row">
+        <span class="logo-cat">Clients</span>
+        <div class="logo-items">
+          <span class="logo-item"><img src="logos/blackstone.png" alt="Blackstone" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Blackstone</span></span>
+          <span class="logo-item"><img src="logos/jpmorgan.png" alt="JPMorgan" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">JPMorgan</span></span>
+          <span class="logo-item"><img src="logos/sl-green.png" alt="SL Green" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">SL Green</span></span>
+          <span class="logo-item"><img src="logos/starwood.png" alt="Starwood" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Starwood</span></span>
+        </div>
+      </div>
+      <div class="logo-row">
+        <span class="logo-cat">Education</span>
+        <div class="logo-items">
+          <span class="logo-item"><img src="logos/university-of-pennsylvania.png" alt="University of Pennsylvania" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">University of Pennsylvania</span></span>
+          <span class="logo-item"><img src="logos/boston-college-law-school.png" alt="Boston College Law School" onerror="this.classList.add('logo-hidden')"><span class="logo-fallback">Boston College Law School</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section class="anim d5" id="what-i-do">
+    <p class="section-label">What I Do</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="tile-title">Strategic Transactions</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Operating &amp; Special Projects Leadership</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Business-Building in Complex Markets</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Legal + Finance Structuring</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Fundraising &amp; Financing Support</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Commercial Negotiations</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Market Structure &amp; Regulatory Positioning</div>
+      </div>
+      <div class="tile">
+        <div class="tile-title">Founder Support &amp; Cross-Functional Execution</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="anim d5" id="background">
+    <p class="section-label">Background</p>
+    <div class="creds">
+      <div>
+        <div class="cred-val">15</div>
+        <div class="cred-label">Years across<br>law &amp; operations</div>
+      </div>
+      <div>
+        <div class="cred-val">2×</div>
+        <div class="cred-label">General Counsel,<br>high-growth tech</div>
+      </div>
+      <div>
+        <div class="cred-val">$5B+</div>
+        <div class="cred-label">Aggregate deals<br>structured</div>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="about">
+      <p>I got my start in BigLaw, executing complex structured finance and high-value transactions at <strong>Fried Frank</strong> and <strong>Alston &amp; Bird</strong> in New York — representing clients such as Blackstone, JPMorgan, SL Green, and Starwood. I moved in-house to combine legal, strategic finance, and operations in emerging tech, crypto, and sports.</p>
+      <p>I'm comfortable across legal, finance, strategy, and execution — especially in regulated, complex, or high-conviction environments. I build things: functions, frameworks, relationships, and outcomes.</p>
+      <p><em>Barred in New York and Pennsylvania. CFA Institute Claritas Certificate. J.D., Boston College Law School. B.A. cum laude, University of Pennsylvania.</em></p>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="anim d6" id="writing">
+    <p class="section-label">Selected Writing</p>
+    <p class="writing-intro">Original strategic research at the intersection of market structure, regulation, and financial law — each series reflects frameworks actively built and published.</p>
+
+    <div class="pub-group">
+      <p class="pub-group-label">eventrisk.ai — Event Risk Series</p>
+
+      <a class="pub" href="https://eventrisk.ai/paper.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>March 2026</span>
+          <span class="pub-series">Part III</span>
+        </div>
+        <div class="pub-title">Event Contracts and the Liquidity Threshold: Risk Transfer, Sportsbook Exposure, and the Derivatives Case for Event Markets</div>
+        <div class="pub-blurb">Introduces the Liquidity-Constrained Event Risk Transfer Curve to evaluate when event contracts can facilitate economically meaningful hedging under derivatives law.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+
+      <a class="pub" href="part2_final_ssrn.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>Feb. 2026</span>
+          <span class="pub-series">Part II</span>
+        </div>
+        <div class="pub-title">The Financialization of Event Risk</div>
+        <div class="pub-blurb">Analyzes the structural evolution of sportsbooks from risk warehouses to risk distributors if prediction markets achieve legal durability and institutional scale.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+
+      <a class="pub" href="part1_final_ssrn.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>Mar. 2026</span>
+          <span class="pub-series">Part I</span>
+        </div>
+        <div class="pub-title">Prediction Markets and the Economic Purpose Test</div>
+        <div class="pub-blurb">Foundational essay arguing that the CFTC's jurisdiction over event contracts should turn on whether a contract transfers pre-existing economic risk or creates new speculative risk.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+    </div>
+
+    <div class="pub-group">
+      <p class="pub-group-label">tcframework.com — Token Continuity Series</p>
+
+      <a class="pub" href="https://www.tcframework.com/token-continuity-framework-paper.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>March 2026</span>
+          <span class="pub-series">Part III</span>
+        </div>
+        <div class="pub-title">Token Continuity Framework (TCF White Paper)</div>
+        <div class="pub-blurb">Practitioner framework applying ground lease doctrine to token holder structural protections under U.S. securities law, anchored to the March 2026 SEC/CFTC joint interpretive release.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+
+      <a class="pub" href="tcf_part2_final.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>Dec. 2025</span>
+          <span class="pub-series">Part II</span>
+        </div>
+        <div class="pub-title">From Disclosure to Design: Constraining Endogenous Risk in Structurally Subordinate Tokens</div>
+        <div class="pub-blurb">Extends the ground lease analogy to securities law's core concern and proposes a tiered token recognition framework drawing on leasehold mortgagee protection doctrine.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+
+      <a class="pub" href="tcf_part1_final.pdf" target="_blank" rel="noopener">
+        <div class="pub-meta">
+          <span>Dec. 2025</span>
+          <span class="pub-series">Part I</span>
+        </div>
+        <div class="pub-title">Tokens Are Leases: Structural Subordination in Crypto's Dual Equity–Token Architecture</div>
+        <div class="pub-blurb">Argues that the dominant dual equity/token structure is economically equivalent to a ground lease, predictably subordinating token holders, and proposes a policy framework borrowed from ground-lease doctrine.</div>
+        <span class="pub-arrow">↗</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="anim d7" id="contact">
+    <p class="section-label">Contact</p>
+    <p class="contact-note">Open to operating, strategic, and legal leadership roles with startups and growth-stage companies — particularly those navigating complex, high-conviction markets. Chief of Staff, Biz Ops, COO-track, Head of Strategic Initiatives, and legal-plus-ops generalist roles all fit.</p>
+    <a class="contact-email" href="mailto:david@kuhnventurelaw.com">david@kuhnventurelaw.com</a>
+    <p class="contact-location">Palm Beach Gardens, FL &nbsp;·&nbsp; Open to remote &amp; South Florida</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="anim d8">
+    <span class="footer-copy">© 2026 kvladvisory.com</span>
+    <span class="footer-entity">Kuhn Venture Law LLC</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

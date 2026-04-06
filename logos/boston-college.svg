@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60">
+  <!-- Eagle silhouette -->
+  <path d="M18 38 Q22 20 28 18 Q32 16 34 20 Q36 16 40 18 L38 24 Q42 22 44 26 Q40 30 36 32 L30 38 Z" fill="#6a6560"/>
+  <text x="54" y="28" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="400" letter-spacing="1" fill="#6a6560">BOSTON COLLEGE</text>
+  <text x="54" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="400" letter-spacing="1" fill="#6a6560">LAW SCHOOL</text>
+</svg>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="David T. Kuhn — Attorney, legal strategist, and original researcher at the intersection of digital asset regulation, securities law, and financial market structure.">
+  <title>David T. Kuhn | KVL Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* === ROOT === */
+    body {
+      font-family: 'Spectral', Georgia, serif;
+      background: #0d0f0e;
+      color: #e8e2d5;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* === GRAIN OVERLAY === */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* === LAYOUT === */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.5s; }
+    .d5 { animation-delay: 0.6s; }
+    .d6 { animation-delay: 0.65s; }
+    .d7 { animation-delay: 0.7s; }
+
+    /* === NAV === */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 0.5px solid rgba(232,226,213,0.15);
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a8275;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8a8275;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #e8e2d5; }
+
+    /* === HERO === */
+    header {
+      padding: 5rem 0 4rem;
+      border-bottom: 0.5px solid rgba(232,226,213,0.15);
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6b6459;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      color: #f0ece3;
+    }
+    h1 em {
+      font-style: italic;
+      color: #b5a98a;
+    }
+    .title-rule {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #6b6459;
+      margin: 1.8rem 0 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .title-rule::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(232,226,213,0.15);
+    }
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: #b5ae9f;
+      max-width: 540px;
+      font-style: italic;
+    }
+    .tagline strong {
+      font-weight: 400;
+      font-style: normal;
+      color: #d4cfc5;
+    }
+
+    /* === SOCIAL ROW === */
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .social a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b6459;
+      text-decoration: none;
+      border-bottom: 0.5px solid #3a3830;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .social a:hover { color: #e8e2d5; border-color: #e8e2d5; }
+
+    /* === SECTIONS === */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 0.5px solid rgba(232,226,213,0.1);
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #6b6459;
+      margin-bottom: 2rem;
+    }
+
+    /* === CREDENTIALS === */
+    .creds {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 2.5rem;
+    }
+    .cred-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #d4cfc5;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .cred-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6b6459;
+      line-height: 1.4;
+    }
+
+    /* === ABOUT TEXT === */
+    .rule {
+      width: 2.5rem;
+      height: 0.5px;
+      background: #3a3830;
+      margin-bottom: 2rem;
+    }
+    .about p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #a09890;
+      margin-bottom: 1rem;
+    }
+    .about p:last-child { margin-bottom: 0; }
+    .about strong { font-weight: 400; color: #c8c2b5; }
+
+    /* === PUBLICATIONS === */
+    .pub {
+      display: block;
+      padding: 1.4rem 0;
+      border-top: 0.5px solid rgba(232,226,213,0.1);
+      text-decoration: none;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .pub:first-of-type { border-top: none; }
+    .pub:hover .pub-title { color: #f0ece3; }
+    .pub:hover .pub-arrow { transform: translate(4px, -4px); opacity: 1; }
+    .pub-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4f4a43;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .pub-series { color: #7a6e5a; }
+    .pub-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #c0b9aa;
+      line-height: 1.4;
+      transition: color 0.2s;
+      padding-right: 2rem;
+    }
+    .pub-blurb {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #6b6459;
+      margin-top: 0.4rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .pub-arrow {
+      position: absolute;
+      top: 1.4rem;
+      right: 0;
+      font-size: 0.85rem;
+      color: #6b6459;
+      opacity: 0;
+      transition: all 0.2s;
+    }
+
+    /* === CONTACT === */
+    .contact-note {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #7a7369;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .contact-email {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #a09070;
+      text-decoration: none;
+      border-bottom: 0.5px solid #3a3830;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-email:hover { color: #e8e2d5; border-color: #e8e2d5; }
+
+    /* === FOOTER === */
+    footer {
+      padding: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy, .footer-entity {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3a3830;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 480px) {
+      nav ul { gap: 1.2rem; }
+      .creds { grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .social { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav class="anim d1">
+    <span class="nav-logo">KVL Advisory</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="anim d2" id="about">
+    <p class="eyebrow">Kuhn Venture Law LLC &nbsp;·&nbsp; kvladvisory.com</p>
+    <h1>David T.<br><em>Kuhn</em></h1>
+    <p class="title-rule">Attorney &nbsp;·&nbsp; Legal Strategist &nbsp;·&nbsp; Original Research</p>
+    <p class="tagline">
+      <strong>General Counsel and transactional attorney</strong> with 12+ years across BigLaw structured finance and in-house executive roles at high-growth blockchain and AI companies. Writing at the intersection of <strong>digital asset regulation, securities law, and financial market structure</strong>.
+    </p>
+    <div class="social anim d3">
+      <a href="https://x.com/gr8day4this" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://www.linkedin.com/in/david-t-kuhn/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:david@kuhnventurelaw.com">Email</a>
+      <a href="https://www.tcframework.com" target="_blank" rel="noopener">TCF Framework</a>
+      <a href="https://eventrisk.ai" target="_blank" rel="noopener">EventRisk.ai</a>
+    </div>
+  </header>
+
+  <!-- BACKGROUND -->
+  <section class="anim d4">
+    <p class="section-label">Background</p>
+    <div class="creds">
+      <div>
+        <div class="cred-val">12+</div>
+        <div class="cred-label">Years of legal<br>practice</div>
+      </div>
+      <div>
+        <div class="cred-val">2×</div>
+        <div class="cred-label">General Counsel,<br>blockchain protocols</div>
+      </div>
+      <div>
+        <div class="cred-val">$5B+</div>
+        <div class="cred-label">Aggregate financings,<br>Fried Frank</div>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="about">
+      <p>Previously <strong>Senior Associate at Fried, Frank, Harris, Shriver & Jacobson</strong> and Alston & Bird in New York, representing Blackstone, JPMorgan, SL Green, and Starwood in structured real estate finance. Subsequently served as General Counsel at <strong>Ankr Network</strong> and <strong>Karate Combat</strong>, building legal functions from the ground up at each.</p>
+      <p>Barred in <strong>New York and Pennsylvania</strong>. CFA Institute Claritas Certificate. J.D., Boston College Law School. B.A. <em>cum laude</em>, University of Pennsylvania / Wharton.</p>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="anim d5" id="writing">
+    <p class="section-label">Selected Writing</p>
+
+    <a class="pub" href="https://www.tcframework.com/token-continuity-framework-paper.pdf" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>March 2026</span>
+        <span class="pub-series">TCF Series · Part III</span>
+        <span>tcframework.com</span>
+      </div>
+      <div class="pub-title">Token Continuity Framework (TCF White Paper)</div>
+      <div class="pub-blurb">Practitioner framework applying ground lease doctrine to token holder structural protections under U.S. securities law, anchored to the March 2026 SEC/CFTC joint interpretive release.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+    <a class="pub" href="https://eventrisk.ai/paper.pdf" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>March 2026</span>
+        <span class="pub-series">Event Risk Series · Part III</span>
+        <span>eventrisk.ai</span>
+      </div>
+      <div class="pub-title">Event Contracts and the Liquidity Threshold: Risk Transfer, Sportsbook Exposure, and the Derivatives Case for Event Markets</div>
+      <div class="pub-blurb">Introduces the Liquidity-Constrained Event Risk Transfer Curve to evaluate when event contracts can facilitate economically meaningful hedging under derivatives law.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+    <a class="pub" href="https://x.com/gr8day4this/status/2003168590153822497" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>Dec. 2025</span>
+        <span class="pub-series">TCF Series · Part II</span>
+      </div>
+      <div class="pub-title">From Disclosure to Design: Constraining Endogenous Risk in Structurally Subordinate Tokens</div>
+      <div class="pub-blurb">Extends the ground lease analogy to securities law's core concern and proposes a tiered token recognition framework drawing on leasehold mortgagee protection doctrine.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+    <a class="pub" href="https://x.com/gr8day4this/status/2000386970061766979" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>Dec. 2025</span>
+        <span class="pub-series">TCF Series · Part I</span>
+      </div>
+      <div class="pub-title">Tokens Are Leases: Structural Subordination in Crypto's Dual Equity–Token Architecture</div>
+      <div class="pub-blurb">Argues that the dominant dual equity/token structure is economically equivalent to a ground lease, predictably subordinating token holders, and proposes a policy framework borrowed from ground-lease doctrine.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+    <a class="pub" href="https://x.com/gr8day4this/status/2023875319996838148" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>Feb. 2026</span>
+        <span class="pub-series">Event Risk Series · Part II</span>
+      </div>
+      <div class="pub-title">The Financialization of Event Risk</div>
+      <div class="pub-blurb">Analyzes the structural evolution of sportsbooks from risk warehouses to risk distributors if prediction markets achieve legal durability and institutional scale.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+    <a class="pub" href="https://x.com/gr8day4this/status/2021331029009563896" target="_blank" rel="noopener">
+      <div class="pub-meta">
+        <span>Feb. 2026</span>
+        <span class="pub-series">Event Risk Series · Part I</span>
+      </div>
+      <div class="pub-title">Prediction Markets: Risk Transfer vs. Risk Creation</div>
+      <div class="pub-blurb">Foundational essay arguing that the CFTC's jurisdiction over event contracts should turn on whether a contract transfers pre-existing economic risk or creates new speculative risk.</div>
+      <span class="pub-arrow">↗</span>
+    </a>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="anim d6" id="contact">
+    <p class="section-label">Contact</p>
+    <p class="contact-note">Available for in-house counsel roles, fractional GC engagements, and advisory. Based in Palm Beach Gardens, FL — open to remote and South Florida opportunities.</p>
+    <a class="contact-email" href="mailto:david@kuhnventurelaw.com">david@kuhnventurelaw.com</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="anim d7">
+    <span class="footer-copy">© 2026 kvladvisory.com</span>
+    <span class="footer-entity">Kuhn Venture Law LLC</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
