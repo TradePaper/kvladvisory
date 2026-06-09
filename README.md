@@ -22,7 +22,7 @@ Static single-page site deployed on Vercel.
 
 ## Author
 
-- [LinkedIn](https://linkedin.com/in/davidtkuhn)
+- [LinkedIn](https://www.linkedin.com/in/david-t-kuhn/)
 - [GitHub](https://github.com/dtkuhn)
 
 ## License
