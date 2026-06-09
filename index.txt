@@ -372,14 +372,14 @@
   <section class="anim d5" id="writing">
     <p class="section-label">Selected Writing</p>
 
-    <a class="pub" href="https://www.tcframework.com/token-continuity-framework-paper.pdf" target="_blank" rel="noopener">
+    <a class="pub" href="https://www.tcframework.com/paper" target="_blank" rel="noopener">
       <div class="pub-meta">
-        <span>March 2026</span>
+        <span>Mar. 2026 (rev. Jun. 2026)</span>
         <span class="pub-series">TCF Series · Part III</span>
         <span>tcframework.com</span>
       </div>
       <div class="pub-title">Token Continuity Framework (TCF White Paper)</div>
-      <div class="pub-blurb">Practitioner framework applying ground lease doctrine to token holder structural protections under U.S. securities law, anchored to the March 2026 SEC/CFTC joint interpretive release.</div>
+      <div class="pub-blurb">Practitioner framework applying ground lease doctrine to token-holder structural protections under U.S. securities law — pathway-agnostic across the March 2026 SEC/CFTC release and the pending CLARITY Act, with protections enforced by structure rather than token-holder governance.</div>
       <span class="pub-arrow">↗</span>
     </a>
 
