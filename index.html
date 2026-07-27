@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Research and writing by David T. Kuhn on market structure, regulation, and financial law.">
   <title>KVL Advisory</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/logo-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/logo-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/public/logo-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
   <meta property="og:title" content="KVL Advisory">
   <meta property="og:description" content="Research and writing by David T. Kuhn on market structure, regulation, and financial law.">
-  <meta property="og:image" content="/public/logo-primary.png">
+  <meta property="og:image" content="https://www.kvladvisory.com/public/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portrait of David T. Kuhn">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kvladvisory.com">
+  <meta property="og:url" content="https://www.kvladvisory.com/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/public/logo-primary.png">
+  <meta name="twitter:image" content="https://www.kvladvisory.com/public/social-preview.jpg">
+  <meta name="twitter:image:alt" content="Portrait of David T. Kuhn">
+  <link rel="canonical" href="https://www.kvladvisory.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -64,115 +69,37 @@
     .d3 { animation-delay: 0.28s; }
     .d4 { animation-delay: 0.38s; }
     .d5 { animation-delay: 0.48s; }
-    .d6 { animation-delay: 0.55s; }
-    .d7 { animation-delay: 0.62s; }
-    .d8 { animation-delay: 0.68s; }
 
     /* === NAV === */
     nav {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 2rem 0 1.5rem;
+      padding: 1.65rem 0 1.35rem;
       border-bottom: 0.5px solid rgba(232,226,213,0.12);
-      position: relative;
-      z-index: 30;
     }
-    /* hamburger button */
-    .nav-toggle {
-      appearance: none;
-      -webkit-appearance: none;
-      background: rgba(232,226,213,0.04);
-      border: 0.5px solid rgba(232,226,213,0.18);
-      border-radius: 6px;
-      width: 44px;
-      height: 44px;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.2s ease, border-color 0.2s ease;
-      z-index: 20;
-    }
-    .nav-toggle:hover {
-      background: rgba(232,226,213,0.08);
-      border-color: rgba(232,226,213,0.3);
-    }
-    .nav-toggle-bar {
-      display: block;
-      width: 18px;
-      height: 1.5px;
-      background: #cdc7bb;
-      border-radius: 1px;
-      transition: transform 0.25s ease, opacity 0.2s ease;
-      transform-origin: center;
-    }
-    .nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg);
-    }
-    .nav-toggle.is-open .nav-toggle-bar:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle.is-open .nav-toggle-bar:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg);
-    }
-
-    /* dropdown menu */
     nav ul.nav-menu {
       list-style: none;
-      position: absolute;
-      top: calc(100% - 0.5rem);
-      right: 0;
-      min-width: 220px;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0.75rem;
-      background: rgba(13,15,14,0.96);
-      border: 0.5px solid rgba(232,226,213,0.14);
-      border-radius: 8px;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-6px);
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 15;
+      align-items: center;
+      gap: 1.5rem;
     }
-    nav ul.nav-menu.is-open {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    nav ul.nav-menu li { display: block; }
     nav ul.nav-menu a {
-      display: block;
+      display: inline-block;
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #a8a195;
+      color: #9b9489;
       text-decoration: none;
-      padding: 0.85rem 1rem;
-      border: 0.5px solid rgba(232,226,213,0.12);
-      border-radius: 5px;
-      background: rgba(232,226,213,0.02);
-      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
     }
     nav ul.nav-menu a:hover,
     nav ul.nav-menu a:focus-visible {
-      background: rgba(232,226,213,0.08);
       color: #f0ece3;
-      border-color: rgba(232,226,213,0.32);
-      outline: none;
-    }
-    nav ul.nav-menu a:active {
-      transform: scale(0.98);
-      background: rgba(232,226,213,0.12);
+      border-color: #b5a98a;
     }
 
     /* === HERO === */
@@ -186,13 +113,12 @@
       gap: 4rem;
       align-items: start;
     }
-    .hero-left { }
     .eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #534e47;
+      color: #8b8479;
       margin-bottom: 1.4rem;
     }
     h1 {
@@ -207,35 +133,6 @@
       font-style: italic;
       color: #b5a98a;
     }
-    .title-rule {
-      font-family: 'DM Mono', monospace;
-      font-size: 10.5px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #6b6459;
-      margin: 1.6rem 0 1.3rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .title-rule::after {
-      content: '';
-      flex: 1;
-      height: 0.5px;
-      background: rgba(232,226,213,0.12);
-    }
-    .tagline {
-      font-size: 1.08rem;
-      font-weight: 300;
-      line-height: 1.72;
-      color: #a8a195;
-      max-width: 500px;
-    }
-    .tagline strong {
-      font-weight: 400;
-      color: #cdc7bb;
-    }
-
     /* === HEADSHOT === */
     .hero-photo-wrap {
       position: relative;
@@ -280,14 +177,6 @@
       display: block;
       filter: contrast(1.04) saturate(0.90) brightness(1.01);
     }
-    .photo-placeholder {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #3a3830;
-    }
-
     /* === SOCIAL ROW === */
     .social {
       display: flex;
@@ -300,13 +189,14 @@
       font-size: 9.5px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #5a5449;
+      color: #9b9489;
       text-decoration: none;
       border-bottom: 0.5px solid #2e2c28;
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .social a:hover { color: #e8e2d5; border-color: #e8e2d5; }
+    .social a:hover,
+    .social a:focus-visible { color: #e8e2d5; border-color: #e8e2d5; }
 
     /* === SECTIONS === */
     section {
@@ -318,7 +208,7 @@
       font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #6b6459;
+      color: #8b8479;
       margin-bottom: 2rem;
     }
 
@@ -327,7 +217,7 @@
       font-size: 0.9rem;
       font-weight: 300;
       line-height: 1.7;
-      color: #6b6459;
+      color: #8b8479;
       font-style: italic;
       margin-bottom: 2.2rem;
       max-width: 480px;
@@ -340,7 +230,7 @@
       font-size: 9px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #4a4640;
+      color: #817a70;
       padding: 1.8rem 0 0.8rem;
       border-top: 0.5px solid rgba(232,226,213,0.08);
     }
@@ -360,18 +250,20 @@
     }
     .pub:hover .pub-title { color: #f0ece3; }
     .pub:hover .pub-arrow { transform: translate(4px, -4px); opacity: 1; }
+    .pub:focus-visible .pub-title { color: #f0ece3; }
+    .pub:focus-visible .pub-arrow { transform: translate(4px, -4px); opacity: 1; }
     .pub-meta {
       font-family: 'DM Mono', monospace;
       font-size: 9.5px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #4a4640;
+      color: #817a70;
       margin-bottom: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 1.2rem;
     }
-    .pub-series { color: #6b6050; }
+    .pub-series { color: #96836a; }
     .pub-title {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.05rem;
@@ -384,7 +276,7 @@
     .pub-blurb {
       font-size: 0.85rem;
       font-weight: 300;
-      color: #5a5449;
+      color: #918a80;
       margin-top: 0.4rem;
       line-height: 1.55;
       font-style: italic;
@@ -395,7 +287,7 @@
       right: 0;
       font-size: 0.85rem;
       color: #6b6459;
-      opacity: 0;
+      opacity: 0.7;
       transition: all 0.2s;
     }
 
@@ -409,23 +301,12 @@
       margin-bottom: 1.8rem;
       max-width: 520px;
     }
-    .contact-email {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: #9a8a6a;
-      text-decoration: none;
-      border-bottom: 0.5px solid #2e2c28;
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .contact-email:hover { color: #e8e2d5; border-color: #e8e2d5; }
     .contact-location {
       font-family: 'DM Mono', monospace;
       font-size: 9.5px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #3a3830;
+      color: #817a70;
       margin-top: 1.2rem;
     }
 
@@ -441,7 +322,13 @@
       font-size: 9.5px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #2e2c28;
+      color: #817a70;
+    }
+
+    a:focus-visible {
+      outline: 2px solid #b5a98a;
+      outline-offset: 5px;
+      border-radius: 2px;
     }
 
     /* === RESPONSIVE === */
@@ -462,11 +349,29 @@
         object-position: center 15%;
       }
       .social { gap: 1rem; }
-      nav ul.nav-menu { min-width: 200px; }
+      header { padding: 3.5rem 0 3.25rem; }
+      section { padding: 3rem 0; }
     }
     @media (max-width: 420px) {
-      nav ul.nav-menu { min-width: 180px; }
-      nav ul.nav-menu a { font-size: 10.5px; padding: 0.75rem 0.9rem; }
+      .wrap { padding: 0 1.25rem; }
+      nav { padding-top: 1.25rem; }
+      nav ul.nav-menu { gap: 1.1rem; }
+      h1 { font-size: clamp(2.65rem, 15vw, 3.6rem); }
+      .social { column-gap: 1.1rem; row-gap: 0.9rem; }
+      footer { align-items: flex-start; flex-direction: column; gap: 0.65rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .anim {
+        opacity: 1;
+        animation: none;
+      }
+      .pub-arrow,
+      .pub-title,
+      .social a,
+      nav ul.nav-menu a {
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -476,11 +381,6 @@
 
   <!-- NAV -->
   <nav class="anim d1">
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
     <ul class="nav-menu" id="nav-menu">
       <li><a href="#writing">Writing</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -502,8 +402,7 @@
       </div>
       <div class="hero-photo-wrap anim d3">
         <div class="hero-photo">
-          <img src="headshot.jpg" alt="David T. Kuhn" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-          <span class="photo-placeholder" style="display:none;">headshot.jpg</span>
+          <img src="headshot.jpg" alt="Portrait of David T. Kuhn">
         </div>
       </div>
     </div>
@@ -585,7 +484,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="anim d7" id="contact">
+  <section class="anim d5" id="contact">
     <p class="section-label">Contact</p>
     <p class="contact-note">As of August 2026, I serve as Senior Counsel at Holland &amp; Knight LLP. KVL Advisory and Kuhn Venture Law LLC have concluded all engagements. This site remains available as an archive of my published research and writing.</p>
     <p class="contact-location">Palm Beach Gardens, FL</p>
@@ -593,49 +492,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="anim d8">
+  <footer class="anim d5">
     <span class="footer-copy">© 2026 kvladvisory.com</span>
     <span class="footer-entity">Kuhn Venture Law LLC</span>
   </footer>
 
 </div>
-
-<script>
-  (function () {
-    var toggle = document.getElementById('nav-toggle');
-    var menu = document.getElementById('nav-menu');
-    if (!toggle || !menu) return;
-
-    function setOpen(open) {
-      toggle.classList.toggle('is-open', open);
-      menu.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    }
-
-    toggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      setOpen(!menu.classList.contains('is-open'));
-    });
-
-    menu.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setOpen(false);
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!menu.classList.contains('is-open')) return;
-      if (e.target.closest('#nav-menu') || e.target.closest('#nav-toggle')) return;
-      setOpen(false);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        setOpen(false);
-        toggle.focus();
-      }
-    });
-  })();
-</script>
 
 </body>
 </html>
